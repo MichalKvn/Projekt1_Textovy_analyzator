@@ -211,7 +211,4 @@ else:
     , CARA)
     print("Uživatelské jméno nebo heslo je chybné. Zkontrolujte své údaje.")
     exit()
-    
 
-
-#vybírám mezi 3 texty v proměnné TEXT
