@@ -1,0 +1,217 @@
+
+#projekt_1.py: První projekt do Engeto Online Python Akademie
+#author: Michal Kavan
+#email: kavan1@centrum.cz
+#discord: Michal K.#5207
+
+TEXTS = '''
+Situated about 10 miles west of Kemmerer,
+Fossil Butte is a ruggedly impressive
+topographic feature that rises sharply
+some 1000 feet above Twin Creek Valley
+to an elevation of more than 7500 feet
+above sea level. The butte is located just
+north of US 30N and the Union Pacific Railroad,
+which traverse the valley. ''',
+'''At the base of Fossil Butte are the bright
+red, purple, yellow and gray beds of the Wasatch
+Formation. Eroded portions of these horizontal
+beds slope gradually upward from the valley floor
+and steepen abruptly. Overlying them and extending
+to the top of the butte are the much steeper
+buff-to-white beds of the Green River Formation,
+which are about 300 feet thick.''',
+'''The monument contains 8198 acres and protects
+a portion of the largest deposit of freshwater fish
+fossils in the world. The richest fossil fish deposits
+are found in multiple limestone layers, which lie some
+100 feet below the top of the butte. The fossils
+represent several varieties of perch, as well as
+other freshwater genera and herring similar to those
+in modern oceans. Other fish such as paddlefish,
+garpike and stingray are also present.'''
+
+TEXT1 = '''
+Situated about 10 miles west of Kemmerer,
+Fossil Butte is a ruggedly impressive
+topographic feature that rises sharply
+some 1000 feet above Twin Creek Valley
+to an elevation of more than 7500 feet
+above sea level. The butte is located just
+north of US 30N and the Union Pacific Railroad,
+which traverse the valley. '''
+TEXT2 = '''At the base of Fossil Butte are the bright
+red, purple, yellow and gray beds of the Wasatch
+Formation. Eroded portions of these horizontal
+beds slope gradually upward from the valley floor
+and steepen abruptly. Overlying them and extending
+to the top of the butte are the much steeper
+buff-to-white beds of the Green River Formation,
+which are about 300 feet thick.'''
+TEXT3 = '''The monument contains 8198 acres and protects
+a portion of the largest deposit of freshwater fish
+fossils in the world. The richest fossil fish deposits
+are found in multiple limestone layers, which lie some
+100 feet below the top of the butte. The fossils
+represent several varieties of perch, as well as
+other freshwater genera and herring similar to those
+in modern oceans. Other fish such as paddlefish,
+garpike and stingray are also present.'''
+
+#vytvorit promenné usernames a hesla
+#input funkce kde jsou vyžádáno jmeno a heslo --> musí se shodovat s tabulkou:
+#udaje jsou vyhodnoceny podle tabulky
+#if je jemno a udaje v pořádku, tak  print pozdrav a řekni že můžeme analyzovat texty if user[1] = password[1]
+#pokud neni registrovany, tak quit ukoncit program
+
+CARA = "-----------------------------------------------------------"
+user = ["bob", "ann", "mike", "liz"]
+password = ["123", "pass123", "password123", "pass123"]
+
+otazka_jmeno = input("Zadejte prosím své přihlašovací jméno:\n")
+otazka_heslo = input("Zadejte prosím své přihlašovací heslo:\n")
+
+if (otazka_jmeno == user[0] and otazka_heslo == password
+    [0]) or (otazka_jmeno == user[1] and otazka_heslo == password
+             [1]) or (otazka_jmeno == user[2] and otazka_heslo == password
+                      [2]) or (otazka_jmeno == user[3] and otazka_heslo == password
+                               [3]):
+    print(CARA)
+    print("$ python projekt1.py""\n"
+    "username:", otazka_jmeno,"\n" 
+    "password:", otazka_heslo,)
+    print(CARA)
+    print("Přihlášení proběhlo úspěšně, vítejte v analyzátoru textů ""\n"
+        "Máme na výběr ze 3 textů k testové analýze")
+    print(CARA)
+
+    TEXTS = [TEXT1, TEXT2, TEXT3]
+    otazka_text = input("Zvolte číslo textu (1 až 3), který chcete analyzovat: ""\n")
+    if otazka_text == str(1):
+        print(f"K analýze jste zvolili text číslo {otazka_text}")
+        print(CARA)    
+        slova1 = TEXT1.split()
+        upravena_1 = []
+        for slova in slova1:
+            upraveno_1 = slova.replace(".","").replace(",","").replace("-","")
+            upravena_1.append(upraveno_1)
+        
+        pocet_slov1 = len(upravena_1)
+        pocet_slov_velke_pismeno1 = sum(1 for slovo1 in upravena_1 if slovo1[0].isupper())
+        pocet_slov_velka_pismena1 = sum(1 for slovo1 in upravena_1 if slovo1.isupper())
+        pocet_slov_mala_pismena1 = sum(1 for slovo1 in upravena_1 if slovo1.islower())
+        cisla1 = []
+
+        for slovo1 in upravena_1:
+            if slovo1.isdigit():
+                cisla1.append(int(slovo1))
+
+        pocet_cisel1 = len(cisla1)
+        suma_cisel1 = sum(cisla1)
+
+        print("Počet slov:", pocet_slov1 - pocet_cisel1)
+        print("Počet slov začínajících velkým písmenem:", pocet_slov_velke_pismeno1)
+        print("Počet slov psaných velkými písmeny:", pocet_slov_velka_pismena1)
+        print("Počet slov psaných malými písmeny:", pocet_slov_mala_pismena1)
+        print("Počet čísel:", pocet_cisel1)
+        print("Suma čísel:", suma_cisel1)
+        #finalni cast (pak zkopírovat do 2 a 3)
+        print(CARA)
+        print("POŘADÍ |  GRAF  | DÉLKA")
+        for index,pocet_znaku1 in enumerate(upravena_1):
+             znaky1 = (len(pocet_znaku1))
+             hvezdicky1 = str(znaky1 * "*" )
+             print( f'{index+1:5d}'". |", f'{hvezdicky1:<17s}' f'{znaky1}')
+        print(CARA,"\n""Děkujeme za využití našeho textového analyzátoru""\n"
+              "Přeji hezký den")
+
+    elif otazka_text == str(2):
+        print(f"K analýze jste zvolili text číslo {otazka_text}")
+        print(CARA)    
+        slova2 = TEXT2.split()
+        upravena_2 = []
+        for slova in slova2:
+            upraveno_2 = slova.replace(".","").replace(",","").replace("-","")
+            upravena_2.append(upraveno_2)
+        
+        pocet_slov2 = len(upravena_2)
+        pocet_slov_velke_pismeno2 = sum(1 for slovo2 in upravena_2 if slovo2[0].isupper())
+        pocet_slov_velka_pismena2 = sum(1 for slovo2 in upravena_2 if slovo2.isupper())
+        pocet_slov_mala_pismena2 = sum(1 for slovo2 in upravena_2 if slovo2.islower())
+        cisla2 = []
+
+        for slovo2 in upravena_2:
+            if slovo2.isdigit():
+                cisla2.append(int(slovo2))
+
+        pocet_cisel2 = len(cisla2)
+        suma_cisel2 = sum(cisla2)
+
+        print("Počet slov:", pocet_slov2 - pocet_cisel2)
+        print("Počet slov začínajících velkým písmenem:", pocet_slov_velke_pismeno2)
+        print("Počet slov psaných velkými písmeny:", pocet_slov_velka_pismena2)
+        print("Počet slov psaných malými písmeny:", pocet_slov_mala_pismena2)
+        print("Počet čísel:", pocet_cisel2)
+        print("Suma čísel:", suma_cisel2)
+        print(CARA)
+        print("NUMBER |  OCCURENCES  | LENGTH")
+        for index, pocet_znaku2 in enumerate(upravena_2):
+             znaky2 = (len(pocet_znaku2))
+             hvezdicky2 = str(znaky2 * "*" )
+             print( f'{index+1:5d}'". |", f'{hvezdicky2:<17s}' f'{znaky2}')
+        print(CARA, "\n""Děkujeme za využití našeho textového analyzátoru""\n"
+              "Přeji hezký den")
+        
+    elif otazka_text == str(3):
+        print(f"K analýze jste zvolili text číslo {otazka_text}")
+        print(CARA)    
+        slova3 = TEXT3.split()
+        upravena_3 = []
+        for slova in slova3:
+            upraveno_3 = slova.replace(".","").replace(",","").replace("-","")
+            upravena_3.append(upraveno_3)
+        
+        pocet_slov3 = len(upravena_3)
+        pocet_slov_velke_pismeno3 = sum(1 for slovo3 in upravena_3 if slovo3[0].isupper())
+        pocet_slov_velka_pismena3 = sum(1 for slovo3 in upravena_3 if slovo3.isupper())
+        pocet_slov_mala_pismena3 = sum(1 for slovo3 in upravena_3 if slovo3.islower())
+        cisla3 = []
+
+        for slovo3 in upravena_3:
+            if slovo3.isdigit():
+                cisla3.append(int(slovo3))
+
+        pocet_cisel3 = len(cisla3)
+        suma_cisel3 = sum(cisla3)
+
+        print("Počet slov:", pocet_slov3 - pocet_cisel3)
+        print("Počet slov začínajících velkým písmenem:", pocet_slov_velke_pismeno3)
+        print("Počet slov psaných velkými písmeny:", pocet_slov_velka_pismena3)
+        print("Počet slov psaných malými písmeny:", pocet_slov_mala_pismena3)
+        print("Počet čísel:", pocet_cisel3)
+        print("Suma čísel:", suma_cisel3)
+        print(CARA)
+        print("NUMBER |  OCCURENCES  | LENGTH")
+        for index, pocet_znaku3 in enumerate(upravena_3):
+             znaky3 = (len(pocet_znaku3))
+             hvezdicky3 = str(znaky3 * "*" )
+             print( f'{index+1:5d}'". |", f'{hvezdicky3:<17s}' f'{znaky3}')
+        print(CARA, "\n""Děkujeme za využití našeho textového analyzátoru""\n"
+              "Přeji hezký den")
+    
+    else:
+        print("Zadali jste nesprávné číslo, nebo znak, který neodpovídá textu určeného k analýze")
+        exit()
+    
+else:
+    print(CARA)
+    print("$ python projekt1.py""\n"
+    "username:", otazka_jmeno,"\n" 
+    "password:", otazka_heslo,"\n"
+    , CARA)
+    print("Uživatelské jméno nebo heslo je chybné. Zkontrolujte své údaje.")
+    exit()
+    
+
+
+#vybírám mezi 3 texty v proměnné TEXT
