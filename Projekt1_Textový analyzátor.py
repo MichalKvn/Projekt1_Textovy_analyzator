@@ -114,6 +114,7 @@ if (otazka_jmeno == user[0] and otazka_heslo == password
     print("Počet čísel:", pocet_cisel)
     print("Suma čísel:", suma_cisel)
     print(CARA)
+    print("NUMBER |  OCCURENCES  | LENGTH")
     for index,pocet_znaku in enumerate(fixed):
              znaky = (len(pocet_znaku))
              hvezdicky1 = str(znaky * "*" )
